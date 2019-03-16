@@ -1,3 +1,9 @@
-<p>
-  productos works!
-</p>
+<div *ngFor="let producto of product" class="card-deck">
+    <div class="card">
+        <img [src]="producto.images[0].src" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{producto.name}}</h5>
+            <p class="card-text">{{producto.description}}</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>

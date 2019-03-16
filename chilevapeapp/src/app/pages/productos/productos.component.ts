@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WoocommerceService } from 'src/app/services/woocommerce.service';
+import { HttpClient } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -9,13 +11,35 @@ import { WoocommerceService } from 'src/app/services/woocommerce.service';
 })
 export class ProductosComponent implements OnInit {
 
-  constructor(private woo: WoocommerceService) {
+  product: any;
+  productVariations: any;
+  selectedvariation: number;
+  selectedquantity: number;
+  productRelated: any;
+  productSlug: number;
+  variationSelected: string;
+  params: object = {};
 
-    console.log('componente iniciado!');
+  constructor(private woo: WoocommerceService,
+              private http: HttpClient,
+              private router: Router,
+              private route: ActivatedRoute) {
+  this.route.params
+  .subscribe(params => this.productSlug = params.slug);
 
   }
 
   ngOnInit() {
+    // this.params = {slug: this.productSlug};
+    let producturl: string = this.woo.authenticateApi('GET', 'http://devchilevapea.curanipelomejor.cl/wp-json/wc/v1/products', this.params);
+
+    this.http.get(producturl)
+    .subscribe( (data: any) => {
+    this.product = data;
+    console.log(data);
+    this.params = {};
+    });
+
   }
 
 }
