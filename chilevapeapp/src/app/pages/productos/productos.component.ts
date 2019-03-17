@@ -20,12 +20,16 @@ export class ProductosComponent implements OnInit {
   variationSelected: string;
   params: object = {};
 
+  loading: boolean;
+
   constructor(private woo: WoocommerceService,
               private http: HttpClient,
               private router: Router,
               private route: ActivatedRoute) {
-  this.route.params
-  .subscribe(params => this.productSlug = params.slug);
+
+                this.loading = true;
+                this.route.params
+                  .subscribe(params => this.productSlug = params.slug);
 
   }
 
@@ -38,6 +42,7 @@ export class ProductosComponent implements OnInit {
     this.product = data;
     console.log(data);
     this.params = {};
+    this.loading = false;
     });
 
   }

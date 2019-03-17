@@ -7,12 +7,16 @@ import { ProductosComponent } from './pages/productos/productos.component';
 import { WoocommerceService } from './services/woocommerce.service';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './shared/loading/loading.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductosComponent,
-    NavbarComponent
+    NavbarComponent,
+    LoadingComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
