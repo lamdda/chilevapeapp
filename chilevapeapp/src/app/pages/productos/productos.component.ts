@@ -34,7 +34,7 @@ export class ProductosComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.params = {slug: this.productSlug};
+
     let producturl: string = this.woo.authenticateApi('GET', 'http://devchilevapea.curanipelomejor.cl/wp-json/wc/v1/products', this.params);
 
     this.http.get(producturl)
@@ -46,5 +46,9 @@ export class ProductosComponent implements OnInit {
     });
 
   }
+
+getProduct(value) {
+console.log(value);
+}
 
 }

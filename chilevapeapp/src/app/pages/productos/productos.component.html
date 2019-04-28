@@ -6,7 +6,7 @@
         <div class="card-body">
             <h5 class="card-title">{{producto.name}}</h5>
             <p class="card-text"><small class="badge badge-pill badge-warning">{{producto.price | currency:'CLP' }}</small></p>
-            <button type="button" class="btn btn-primary btn-block">Ver mas</button>
+            <button type="button" (click)="getProduct()" class="btn btn-primary btn-block">Ver mas</button>
         </div>
     </div>
 </div>

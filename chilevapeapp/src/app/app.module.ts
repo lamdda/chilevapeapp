@@ -9,6 +9,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './shared/loading/loading.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ProductoComponent } from './pages/producto/producto.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './pages/home/home.component';
     ProductosComponent,
     NavbarComponent,
     LoadingComponent,
-    HomeComponent
+    HomeComponent,
+    ProductoComponent
   ],
   imports: [
     BrowserModule,
