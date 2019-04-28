@@ -1,7 +1,7 @@
 <app-loading *ngIf="loading"></app-loading>
 
 <div class="card-columns">
-    <div *ngFor="let producto of product; let i = index" class="card">
+    <div *ngFor="let producto of product; let i = index" class="card animated fadeIn">
         <img [src]="producto.images[0].src" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{producto.name}}</h5>

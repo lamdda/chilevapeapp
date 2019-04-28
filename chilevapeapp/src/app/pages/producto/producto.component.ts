@@ -19,7 +19,7 @@ export class ProductoComponent {
 
     this.activatedRoute.params
       .subscribe( params => {
-        console.log(params['id']);
+        console.log(params);
         // this.producto = this.getProducto.getProducto( params['id'] );
         this.producto = params['id'];
         // console.log(this.producto);

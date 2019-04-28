@@ -12,24 +12,25 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ProductosComponent implements OnInit {
 
   product: any;
+  params = {};
+  /*
   productVariations: any;
   selectedvariation: number;
   selectedquantity: number;
   productRelated: any;
   productSlug: number;
   variationSelected: string;
-  params: object = {};
-
+  */
   loading: boolean;
 
   constructor(private woo: WoocommerceService,
               private http: HttpClient,
-              private router: Router,
-              private route: ActivatedRoute) {
+              private router: Router
+              // private route: ActivatedRoute
+              ) {
 
                 this.loading = true;
-                this.route.params
-                  .subscribe(params => this.productSlug = params.slug);
+                // this.route.params.subscribe(params => this.productSlug = params.slug );
 
   }
 
@@ -50,10 +51,6 @@ export class ProductosComponent implements OnInit {
 showProduct(idx: number) {
   this.router.navigate( ['/producto', idx] );
   console.log(idx);
-}
-
-getProducto( idx: string) {
-  return this.product[idx];
 }
 
 }
