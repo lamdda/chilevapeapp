@@ -47,8 +47,13 @@ export class ProductosComponent implements OnInit {
 
   }
 
-getProduct(value) {
-console.log(value);
+showProduct(idx: number) {
+  this.router.navigate( ['/producto', idx] );
+  console.log(idx);
+}
+
+getProducto( idx: string) {
+  return this.product[idx];
 }
 
 }
