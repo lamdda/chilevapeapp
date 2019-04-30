@@ -63,12 +63,12 @@ export class WoocommerceService {
     this.http.get(this.authenticateApi('GET', 'http://devchilevapea.curanipelomejor.cl/wp-json/wc/v1/products', this.params))
       .subscribe( resp => {
         this.productos = resp;
-        this.guardarStorage('Proyectos', this.productos);
-      })
+        this.guardarStorage('Productos', this.productos);
+      });
   }
 
   getProducto( idProducto: number ) {
-    this.storageProductos('Proyectos')
+    this.storageProductos('Productos');
     this.producto = this.productos.filter( (resp: any) => resp.id == idProducto )[0];
     console.log(this.producto);
   }
