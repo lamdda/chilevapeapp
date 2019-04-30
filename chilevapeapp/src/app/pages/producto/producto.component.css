@@ -1,0 +1,10 @@
+.imgProducto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.imgProducto img {
+    max-width: 200px;
+}

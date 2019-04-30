@@ -1,4 +1,7 @@
 <p>
-    el id del producto es: {{producto}}
+    {{woo.producto.name}}
 </p>
+<div class="imgProducto">
+    <img *ngFor="let imagenes of woo.producto.images" [src]="imagenes.src" alt="">
+</div>
 <a [routerLink]="['/productos']">volver</a>
