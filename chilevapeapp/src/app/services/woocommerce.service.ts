@@ -8,10 +8,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class WoocommerceService {
-  productos: any = [];
-  producto: any = [];
-  params = {};
   nonce = '';
+  params = {};
+  producto: any = [];
+  productos: any = [];
   currentTimestamp = 0 ;
   customerKey = 'ck_1f01406d9c76aa051c83045b6c394a40b77b29e4';
   customerSecret  = 'cs_87eb31952936ab441d0d8072392e404eb786ad90';
@@ -29,11 +29,11 @@ export class WoocommerceService {
     this.currentTimestamp = Math.floor(new Date().getTime() / 1000);
 
     let authParam: object = {
-      oauth_consumer_key : this.customerKey,
-      oauth_nonce : this.nonce,
+      oauth_consumer_key     : this.customerKey,
+      oauth_nonce            : this.nonce,
       oauth_signature_method : 'HMAC-SHA1',
-      oauth_timestamp : this.currentTimestamp,
-      oauth_version : '1.0',
+      oauth_timestamp        : this.currentTimestamp,
+      oauth_version          : '1.0',
   };
 
     let parameters = Object.assign({}, authParam, params);

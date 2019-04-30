@@ -1,7 +1,26 @@
-<p>
-    {{woo.producto.name}}
-</p>
-<div class="imgProducto">
-    <img *ngFor="let imagenes of woo.producto.images" [src]="imagenes.src" alt="">
+<div class="container d-flex flex-wrap">
+    <div class="col-md-6 col-12">
+        <!-- <h2>
+            {{woo.producto.name}}
+        </h2> -->
+        <div [innerHTML]="woo.producto.description"></div>
+        <a [routerLink]="['/productos']">volver</a>
+    </div>
+    <div class="col-md-6 col-12">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div *ngFor="let imagenes of woo.producto.images; let i = index" class="carousel-item" [ngClass]="{'active': i === 0}">
+                    <img [src]="imagenes.src" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
 </div>
-<a [routerLink]="['/productos']">volver</a>
