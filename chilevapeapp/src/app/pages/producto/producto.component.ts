@@ -21,11 +21,9 @@ export class ProductoComponent {
 
     this.activatedRoute.params
       .subscribe( params => {
-        // this.producto = this.getProducto.getProducto( params['id'] );
         this.producto = params['id'];
         console.log(this.producto);
         this.woo.getProducto( this.producto );
-        // console.log(this.producto);
       });
   }
 
