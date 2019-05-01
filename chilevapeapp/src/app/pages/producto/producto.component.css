@@ -8,3 +8,37 @@
 .imgProducto img {
     max-width: 200px;
 }
+
+.volver {
+    background: #383838;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    margin: auto;
+    height: 30px;
+    transition: 0.3s;
+    font-family: Open Sans;
+    text-decoration: none;
+}
+
+.volver:hover {
+    background: #1f1f1f;
+    cursor: pointer;
+}
+
+p img {
+    width: 100%;
+    height: auto;
+}
+
+#producto {
+    margin-bottom: 20px;
+}
+
+@media(max-width: 767px) {
+    #producto {
+        flex-wrap: wrap-reverse !important;
+    }
+}

@@ -1,10 +1,18 @@
-<div class="container d-flex flex-wrap">
+<div id="producto" class="container d-flex flex-wrap ">
     <div class="col-md-6 col-12">
-        <!-- <h2>
-            {{woo.producto.name}}
-        </h2> -->
-        <div [innerHTML]="woo.producto.description"></div>
-        <a [routerLink]="['/productos']">volver</a>
+        <p>{{woo.producto.price}}</p>
+        <div class="car d-flex">
+            <input type="number" name="" value="1" class="text-center">
+            <button type="button" class="btn btn-primary btn-block" [routerLink]="['/producto', producto.id]">Añadir al carrito</button>
+        </div>
+        <p>Categorías:
+            <span *ngFor="let cat of woo.producto.categories">{{cat.name}}</span>
+        </p>
+        <p>Etiquetas:
+            <span *ngFor="let cat of woo.producto.categories">{{cat.name}}</span>
+        </p>
+        <div [innerHTML]="woo.producto.description" class="innerHTML"></div>
+        <a [routerLink]="['/productos']" class="volver">volver</a>
     </div>
     <div class="col-md-6 col-12">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
