@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WoocommerceService } from 'src/app/services/woocommerce.service';
-// import { ProductosComponent } from '../productos/productos.component';
 
 declare var $: any;
 @Component({
@@ -9,15 +8,12 @@ declare var $: any;
   templateUrl: './producto.component.html',
   styleUrls: ['./producto.component.css']
 })
-export class ProductoComponent {
+export class ProductoComponent implements OnInit {
 
-  // producto: any = {};
   producto : any;
 
   constructor( private activatedRoute: ActivatedRoute,
-    public woo: WoocommerceService
-               // private getProducto: ProductosComponent
-               ) {
+    public woo: WoocommerceService) {
 
     this.activatedRoute.params
       .subscribe( params => {
@@ -26,6 +22,8 @@ export class ProductoComponent {
         this.woo.getProducto( this.producto );
       });
   }
+
+  ngOnInit() {}
 
   transitionColor(foto: string) {
     $('#fotoProducto').attr('src', foto );

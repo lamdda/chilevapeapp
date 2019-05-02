@@ -1,6 +1,6 @@
 <div id="producto">
     <div class="container d-flex flex-wrap-reverse">
-        <div class="col-md-6 col-12">
+        <div class="col-md-5 col-12">
             <p>{{woo.producto.price}}</p>
             <mat-form-field *ngIf="woo.producto.attributes.length !== 0">
                 <mat-label>Colores</mat-label>
@@ -20,31 +20,18 @@
             <p *ngIf="woo.producto.tags.length !== 0">Etiquetas:
                 <span *ngFor="let tag of woo.producto.tags">{{tag.name}} </span>
             </p>
-            <div class="imagenes">
-                <div class="imagenProducto" *ngFor="let foto of woo.producto.images" (click)="transitionColor(foto.src)">
-                    <img [src]="foto.src">
-                </div>
-            </div>
             <a [routerLink]="['/productos']" class="volver">volver</a>
         </div>
-        <div class="col-md-6 col-12">
-            <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div *ngFor="let imagenes of woo.producto.images; let i = index" class="carousel-item" [ngClass]="{'active': i === 0}">
-                        <img [src]="imagenes.src" class="d-block w-100" alt="...">
+        <div class="col-md-7 col-12">
+            <div class="imagenesProductos">
+                <div>
+                    <img id="fotoProducto" [src]="woo.producto.images[0].src" class="d-block w-100" alt="...">
+                </div>
+                <div class="miniatura">
+                    <div class="minProducto" *ngFor="let foto of woo.producto.images" (click)="transitionColor(foto.src)" (mouseover)="transitionColor(foto.src)">
+                        <img [src]="foto.src">
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div> -->
-            <div>
-                <img id="fotoProducto" [src]="woo.producto.images[0].src" class="d-block w-100" alt="...">
             </div>
 
         </div>
