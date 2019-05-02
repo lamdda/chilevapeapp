@@ -1,3 +1,4 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 .imagen {
     width: 400px;
     height: 400px;

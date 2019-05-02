@@ -1,34 +1,45 @@
-<div id="producto" class="container d-flex flex-wrap ">
-    <div class="col-md-6 col-12">
-        <p>{{woo.producto.price}}</p>
-        <div class="car d-flex">
-            <input type="number" name="" value="1" class="text-center">
-            <button type="button" class="btn btn-primary btn-block" [routerLink]="['/producto', producto.id]">Añadir al carrito</button>
-        </div>
-        <p>Categorías:
-            <span *ngFor="let cat of woo.producto.categories">{{cat.name}}</span>
-        </p>
-        <p>Etiquetas:
-            <span *ngFor="let cat of woo.producto.categories">{{cat.name}}</span>
-        </p>
-        <div [innerHTML]="woo.producto.description" class="innerHTML"></div>
-        <a [routerLink]="['/productos']" class="volver">volver</a>
-    </div>
-    <div class="col-md-6 col-12">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <div *ngFor="let imagenes of woo.producto.images; let i = index" class="carousel-item" [ngClass]="{'active': i === 0}">
-                    <img [src]="imagenes.src" class="d-block w-100" alt="...">
-                </div>
+<div id="producto">
+    <div class="container d-flex flex-wrap-reverse">
+        <div class="col-md-6 col-12">
+            <p>{{woo.producto.price}}</p>
+            <mat-form-field *ngIf="woo.producto.attributes.length !== 0">
+                <mat-label>Colores</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let color of woo.producto.attributes[0].options" [value]="color">
+                        {{color}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="car d-flex">
+                <input type="number" name="" value="1" class="text-center">
+                <button type="button" class="btn btn-primary btn-block" [routerLink]="['/producto', producto.id]">Añadir al carrito</button>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <p *ngIf="woo.producto.categories.length !== 0">Categorías:
+                <span *ngFor="let cat of woo.producto.categories">{{cat.name}} </span>
+            </p>
+            <p *ngIf="woo.producto.tags.length !== 0">Etiquetas:
+                <span *ngFor="let tag of woo.producto.tags">{{tag.name}} </span>
+            </p>
+            <a [routerLink]="['/productos']" class="volver">volver</a>
+        </div>
+        <div class="col-md-6 col-12">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div *ngFor="let imagenes of woo.producto.images; let i = index" class="carousel-item" [ngClass]="{'active': i === 0}">
+                        <img [src]="imagenes.src" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
         </div>
     </div>
+
+    <div [innerHTML]="woo.producto.description" class="innerHTML col-12"></div>
 </div>
