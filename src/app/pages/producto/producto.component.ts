@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { WoocommerceService } from 'src/app/services/woocommerce.service';
 // import { ProductosComponent } from '../productos/productos.component';
 
-
+declare var $: any;
 @Component({
   selector: 'app-producto',
   templateUrl: './producto.component.html',
@@ -25,6 +25,10 @@ export class ProductoComponent {
         console.log(this.producto);
         this.woo.getProducto( this.producto );
       });
+  }
+
+  transitionColor(foto: string) {
+    $('#fotoProducto').attr('src', foto );
   }
 
 }

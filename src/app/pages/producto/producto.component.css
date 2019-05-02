@@ -42,3 +42,19 @@ p img {
         flex-wrap: wrap-reverse !important;
     }
 }
+
+img {
+    max-width: 100%;
+}
+
+.imagenes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagenes .imagenProducto {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+}
