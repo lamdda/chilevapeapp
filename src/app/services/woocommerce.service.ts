@@ -15,6 +15,7 @@ export class WoocommerceService {
   currentTimestamp = 0 ;
   customerKey = 'ck_1f01406d9c76aa051c83045b6c394a40b77b29e4';
   customerSecret  = 'cs_87eb31952936ab441d0d8072392e404eb786ad90';
+  prueba: string;
 
   constructor( private http: HttpClient ) { }
 
@@ -55,16 +56,25 @@ export class WoocommerceService {
             paramStr += '&' + key + '=' + parameters[key];
         });
      // tslint:disable-next-line:max-line-length
+     
+     this.prueba = url + '?oauth_consumer_key=' + this.customerKey + '&oauth_nonce=' + this.nonce + '&oauth_signature_method=HMAC-SHA1&oauth_timestamp=' + this.currentTimestamp + '&oauth_version=1.0&oauth_signature=' + Base64.stringify(hmacSHA1(method + '&' + encodeURIComponent(url) + '&' + encodeURIComponent(signatureStr), this.customerSecret + '&')) + paramStr;
+
+     console.log(this.prueba);
+     
     return url + '?oauth_consumer_key=' + this.customerKey + '&oauth_nonce=' + this.nonce + '&oauth_signature_method=HMAC-SHA1&oauth_timestamp=' + this.currentTimestamp + '&oauth_version=1.0&oauth_signature=' + Base64.stringify(hmacSHA1(method + '&' + encodeURIComponent(url) + '&' + encodeURIComponent(signatureStr), this.customerSecret + '&')) + paramStr;
 
   }
 
   dataProductos() {
-    this.http.get(this.authenticateApi('GET', 'http://devchilevapea.curanipelomejor.cl/wp-json/wc/v1/products', this.params))
+    this.http.get(this.prueba)
       .subscribe( resp => {
         this.productos = resp;
         this.guardarStorage('Productos', this.productos);
       });
+  }
+
+  cargaAuth() {
+    this.authenticateApi('GET', 'http://devchilevapea.curanipelomejor.cl/wp-json/wc/v1/products', this.params)
   }
 
   getProducto( idProducto: number ) {

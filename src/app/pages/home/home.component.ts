@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WoocommerceService } from 'src/app/services/woocommerce.service';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public woo: WoocommerceService) {
+    this.woo.cargaAuth();
+   }
 
   ngOnInit() {
   }
