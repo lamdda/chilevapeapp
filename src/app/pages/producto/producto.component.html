@@ -11,14 +11,14 @@
                 </mat-select>
             </mat-form-field>
             <div class="car d-flex">
-                <input type="number" name="" value="1" class="text-center">
-                <button type="button" class="btn btn-primary btn-block" [routerLink]="['/producto', producto.id]">Añadir al carrito</button>
+                <input type="number" name="" value="1" class="text-center numberCar">
+                <button type="button" class="btn btn-primary btn-block addCar" [routerLink]="['/producto', producto.id]">Añadir al carrito</button>
             </div>
             <p *ngIf="woo.producto.categories.length !== 0">Categorías:
-                <span *ngFor="let cat of woo.producto.categories">{{cat.name}} </span>
+                <span *ngFor="let cat of woo.producto.categories"><strong>{{cat.name}} </strong></span>
             </p>
             <p *ngIf="woo.producto.tags.length !== 0">Etiquetas:
-                <span *ngFor="let tag of woo.producto.tags">{{tag.name}} </span>
+                <span *ngFor="let tag of woo.producto.tags"><strong>{{tag.name}} </strong></span>
             </p>
             <a [routerLink]="['/productos']" class="volver">volver</a>
         </div>
@@ -27,8 +27,8 @@
                 <div>
                     <img id="fotoProducto" [src]="woo.producto.images[0].src" class="d-block w-100" alt="...">
                 </div>
-                <div class="miniatura">
-                    <div class="minProducto" *ngFor="let foto of woo.producto.images" (click)="transitionColor(foto.src)" (mouseover)="transitionColor(foto.src)">
+                <div class="miniatura" *ngIf="woo.producto.images.length !== 0">
+                    <div class="minProducto" [ngClass]="foto.name" *ngFor="let foto of woo.producto.images; let i = index" (click)="transitionColor(foto.src, foto.name)" (mouseover)="transitionColor(foto.src, foto.name)">
                         <img [src]="foto.src">
                     </div>
                 </div>

@@ -25,8 +25,11 @@ export class ProductoComponent implements OnInit {
 
   ngOnInit() {}
 
-  transitionColor(foto: string) {
+  transitionColor(foto: string, clase: string) {
+    console.log(clase);
     $('#fotoProducto').attr('src', foto );
+    $('.minProducto').removeClass('minProductoActivo');
+    $('.'+ clase).addClass('minProductoActivo');
   }
 
 }

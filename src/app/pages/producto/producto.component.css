@@ -49,6 +49,7 @@ img {
 
 .imagenesProductos {
     display: flex;
+    align-items: center;
 }
 
 .miniatura {
@@ -61,5 +62,35 @@ img {
     height: 50px;
     cursor: pointer;
     margin: 4px 0;
-    ;
+    border: 1px solid #000;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.miniatura .minProducto:hover {
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+}
+
+.minProductoActivo {
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
+}
+
+.addCar {
+    font-family: Open Sans;
+    background: #000;
+    border-radius: 0;
+    outline: none;
+    width: 100%;
+    max-width: 200px;
+    border: none;
+}
+
+.numberCar {
+    width: 70px;
+    margin-right: 10px;
+    border: 1px solid;
 }
