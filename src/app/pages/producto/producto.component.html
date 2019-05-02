@@ -27,7 +27,7 @@
                 <div>
                     <img id="fotoProducto" [src]="woo.producto.images[0].src" class="d-block w-100" alt="...">
                 </div>
-                <div class="miniatura" *ngIf="woo.producto.images.length !== 0">
+                <div class="miniatura" *ngIf="woo.producto.images.length > 1">
                     <div class="minProducto" [ngClass]="foto.name" *ngFor="let foto of woo.producto.images; let i = index" (click)="transitionColor(foto.src, foto.name)" (mouseover)="transitionColor(foto.src, foto.name)">
                         <img [src]="foto.src">
                     </div>
