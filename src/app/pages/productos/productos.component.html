@@ -5,11 +5,11 @@
         <img [src]="producto.images[0].src" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{producto.name}}</h5>
-            <p class="card-text"><small class="badge badge-pill badge-warning">{{producto.price | currency:'CLP' }}</small></p>
+            <p class="card-text"><small class="badge badge-pill">{{producto.price | currency:'CLP' }}</small></p>
             <!--  
                 <a [routerLink]="['/producto',i]" class="btn btn-primary btn-block">ver mas</a>
             -->
-            <button type="button" class="btn btn-primary btn-block" #value [routerLink]="['/producto', producto.id]">Ver mas</button>
+            <button type="button" class="btn btn-primary btn-block verMas" #value [routerLink]="['/producto', producto.id]">Ver mas</button>
         </div>
     </div>
 </div>

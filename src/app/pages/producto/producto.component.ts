@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WoocommerceService } from 'src/app/services/woocommerce.service';
+import { AddCarInterface } from 'src/app/models/addCar-interface';
 
 declare var $: any;
 @Component({
@@ -9,6 +10,11 @@ declare var $: any;
   styleUrls: ['./producto.component.css']
 })
 export class ProductoComponent implements OnInit {
+  addCar: AddCarInterface = {
+    cantidad: 1,
+    nombre: this.woo.producto.name,
+    id: this.woo.producto.id
+  };
 
   producto : any;
 
@@ -29,6 +35,10 @@ export class ProductoComponent implements OnInit {
     $('#fotoProducto').attr('src', foto );
     $('.minProducto').removeClass('minProductoActivo');
     $('.'+ clase).addClass('minProductoActivo');
+  }
+
+  addProductCar( producto: string ) {
+    console.log('Agregado Carrito: ', producto);
   }
 
 }

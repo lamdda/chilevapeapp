@@ -87,6 +87,7 @@ img {
     width: 100%;
     max-width: 200px;
     border: none;
+    box-shadow: none;
 }
 
 .numberCar {

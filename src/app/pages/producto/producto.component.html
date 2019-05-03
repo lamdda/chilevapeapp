@@ -1,19 +1,21 @@
 <div id="producto">
     <div class="container d-flex flex-wrap-reverse">
         <div class="col-md-5 col-12">
-            <p>{{woo.producto.price}}</p>
-            <mat-form-field *ngIf="woo.producto.attributes.length !== 0">
-                <mat-label>Colores</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let color of woo.producto.attributes[0].options" [value]="color">
-                        {{color}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
-            <div class="car d-flex">
-                <input type="number" name="" value="1" class="text-center numberCar">
-                <button type="button" class="btn btn-primary btn-block addCar" [routerLink]="['/producto', producto.id]">Añadir al carrito</button>
-            </div>
+            <p>{{woo.producto.price | currency:'CLP ' }}</p>
+            <form (ngSubmit)="addProductCar(addCar)" #forma="ngForm">
+                <mat-form-field *ngIf="woo.producto.attributes.length !== 0">
+                    <mat-label>Colores</mat-label>
+                    <mat-select [(ngModel)]="addCar.color" name="color" required>
+                        <mat-option *ngFor="let color of woo.producto.attributes[0].options" [value]="color">
+                            {{color}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="car d-flex">
+                    <input type="number" class="text-center numberCar" minlength="1" [(ngModel)]="addCar.cantidad" name="cantidad" required>
+                    <button [disabled]="!forma.valid" type="submit" class="btn btn-primary btn-block addCar">Añadir al carrito</button>
+                </div>
+            </form>
             <p *ngIf="woo.producto.categories.length !== 0">Categorías:
                 <span *ngFor="let cat of woo.producto.categories"><strong>{{cat.name}} </strong></span>
             </p>
