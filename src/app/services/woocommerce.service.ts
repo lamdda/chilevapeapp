@@ -13,8 +13,8 @@ export class WoocommerceService {
   producto: any = [];
   productos: any = [];
   currentTimestamp = 0 ;
-  customerKey = 'ck_1f01406d9c76aa051c83045b6c394a40b77b29e4';
-  customerSecret  = 'cs_87eb31952936ab441d0d8072392e404eb786ad90';
+  customerKey = 'ck_4547d81f296b51305ea7f3497468a49427a4c391';
+  customerSecret  = 'cs_cd5d79fe191fa6aaf7bf46dfa5ddcaf506334e21';
 
   constructor( private http: HttpClient ) { }
 
